@@ -3,7 +3,7 @@ import React, { useState, useEffect } from "react";
 import { ContactForm } from "../../components/contactForm/ContactForm";
 import { TileList } from "../../components/tileList/TileList";
 
-export const ContactsPage = ({contacts, addContacts}) => {
+export const ContactsPage = ({contacts, addContact}) => {
   const [name, setName] = useState("");
   const [phone, setPhone] = useState("");
   const [email, setEmail] = useState("");
@@ -17,21 +17,25 @@ export const ContactsPage = ({contacts, addContacts}) => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    // if (isNameDuplicate) {
-    //   alert('Name already taken.');
-    //   return;
-    // };
+    if (isNameDuplicate()) {
+      alert('Name already taken.');
+      return;
+    };
     const contact = {
       name: name,
       phoneNumber: phone,
       email: email
     }
-    addContacts(contact);
+    addContact(contact);
+    setName("");
+    setPhone("");
+    setEmail("");
+    alert('Contact added');
   };
 
   // useEffect(() => {
   //   isNameDuplicate()
-  // }, [name]);
+  // }, []);
 
   return (
     <div>
