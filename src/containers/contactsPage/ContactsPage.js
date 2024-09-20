@@ -23,19 +23,16 @@ export const ContactsPage = ({contacts, addContact}) => {
     };
     const contact = {
       name: name,
-      phoneNumber: phone,
+      phone: phone,
       email: email
     }
     addContact(contact);
     setName("");
     setPhone("");
     setEmail("");
-    alert('Contact added');
+    console.log(contacts)
+    return alert('Contact added');
   };
-
-  // useEffect(() => {
-  //   isNameDuplicate()
-  // }, []);
 
   return (
     <div>
@@ -53,7 +50,7 @@ export const ContactsPage = ({contacts, addContact}) => {
       <hr />
       <section>
         <h2>Contacts</h2>
-        <TileList contacts={contacts} />
+        <TileList items={contacts} type={"contacts"}/>
       </section>
     </div>
   );
