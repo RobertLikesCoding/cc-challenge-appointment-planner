@@ -30,7 +30,7 @@ export const ContactsPage = ({contacts, addContact}) => {
     setName("");
     setPhone("");
     setEmail("");
-    console.log(contacts)
+    
     return alert('Contact added');
   };
 
